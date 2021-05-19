@@ -1897,4 +1897,6 @@ config SENSORS_ATK0110
 
 endif # ACPI
 
+source drivers/hwmon/tmd2725/Kconfig
+
 endif # HWMON
