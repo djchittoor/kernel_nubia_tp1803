@@ -1,0 +1,5 @@
+config SENSORS_TMD2725
+	tristate "TMD2725 Ambient Light sensor"
+	default n
+	help
+	  Enables support for TMD2725 Ambient Light sensor
