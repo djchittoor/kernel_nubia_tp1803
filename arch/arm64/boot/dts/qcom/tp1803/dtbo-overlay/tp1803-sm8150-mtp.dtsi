@@ -1,0 +1,37 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
+ */
+
+&soc {
+	qcom,qbt1000 {
+		/delete-property/ qcom,ipc-gpio;
+	};
+};
+
+&qupv3_se9_i2c {
+	nq@28 {
+		pinctrl-0 = <&nfc_int_active &nfc_enable_active>;
+		pinctrl-1 = <&nfc_int_suspend &nfc_enable_suspend>;
+	};
+};
+
+&pm8150b_fg {
+	/delete-property/ qcom,five-pin-battery;
+};
+
+&sdhc_2 {
+	status = "disabled";
+};
+
+&pm8150b_charger {
+	/delete-property/ qcom,step-charging-enable;
+};
+
+&smb1390 {
+	status = "disabled";
+};
+
+&smb1390_charger {
+	status = "disabled";
+};

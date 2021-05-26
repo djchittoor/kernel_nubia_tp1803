@@ -1,0 +1,117 @@
+/*
+ * Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&soc {
+	sunwave_fp {
+        status = "ok";
+		compatible = "sunwave,fingerprint";
+		sunwave,gpio_irq = <&tlmm 118 0x00>;
+		sunwave,gpio_reset = <&tlmm 113 0x00>;
+		sunwave,gpio_id = <&tlmm 125 0x00>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sunwave_reset_default &sunwave_irq_default &sunwave_id_default>;
+		VDD-supply = <&pm8150l_l6>;
+	};
+
+	/delete-node/ qcom,qbt1000;
+};
+
+&qupv3_se9_i2c {
+	/delete-node/ nq@28;
+};
+
+&tlmm {
+	sunwave_reset {
+		sunwave_reset_default: sunwave_reset_default {
+			mux {
+				pins = "gpio113";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio113";
+				drive-strength = <6>;
+				bias-pull-up;
+			};
+		};
+
+		sunwave_reset_sleep: sunwave_reset_sleep {
+			mux {
+				pins = "gpio113";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio113";
+				drive-strength = <6>;
+				bias-pull-up;
+			};
+		};
+	};
+
+	sunwave_irq {
+		sunwave_irq_default: sunwave_irq_default {
+			mux {
+				pins = "gpio118";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio118";
+				drive-strength = <6>;
+				bias-disable;
+			};
+		};
+
+		sunwave_irq_sleep: sunwave_irq_sleep {
+			mux {
+				pins = "gpio118";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio118";
+				drive-strength = <6>;
+				bias-disable;
+			};
+		};
+	};
+
+	sunwave_id {
+		sunwave_id_default: sunwave_id_default {
+			mux {
+				pins = "gpio125";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio125";
+				drive-strength = <6>;
+				bias-disable;
+			};
+		};
+
+		sunwave_id_sleep: sunwave_id_sleep {
+			mux {
+				pins = "gpio125";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio125";
+				drive-strength = <6>;
+				bias-disable;
+			};
+		};
+	};
+};

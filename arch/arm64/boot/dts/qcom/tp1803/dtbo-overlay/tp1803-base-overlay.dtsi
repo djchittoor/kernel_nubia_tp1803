@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
+ */
+
+#include "tp1803-pm8150b.dtsi"
+#include "tp1803-sm8150-audio-overlay.dtsi"
+#include "tp1803-sm8150-mtp.dtsi"
+#include "tp1803-sm8150-sde-display.dtsi"
+#include "include/oem/nubia-head.dtsi"

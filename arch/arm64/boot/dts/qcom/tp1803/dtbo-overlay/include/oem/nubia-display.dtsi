@@ -1,0 +1,74 @@
+#include "../display/nubia-jdi-hx83112a-1080-2160-5p65-video.dtsi"
+#include "../display/nubia-lead-hx83112a-1080-2160-5p65-video.dtsi"
+
+&dsi_sharp_4k_dsc_cmd_display {
+	/delete-property/ qcom,dsi-display-active;
+};
+
+&soc {
+	nubia_dsi_panel_pwr_supply: nubia_dsi_panel_pwr_supply {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		qcom,panel-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "vddio";
+			qcom,supply-min-voltage = <1800000>;
+			qcom,supply-max-voltage = <1800000>;
+			qcom,supply-enable-load = <62000>;
+			qcom,supply-disable-load = <80>;
+			qcom,supply-post-on-sleep = <2>;
+		};
+
+		qcom,panel-supply-entry@1 {
+			reg = <1>;
+			qcom,supply-name = "lab";
+			qcom,supply-min-voltage = <5500000>;
+			qcom,supply-max-voltage = <5500000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+			qcom,supply-post-on-sleep = <2>;
+			qcom,supply-pre-off-sleep = <2>;
+		};
+
+		qcom,panel-supply-entry@2 {
+			reg = <2>;
+			qcom,supply-name = "ibb";
+			qcom,supply-min-voltage = <5500000>;
+			qcom,supply-max-voltage = <5500000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+			qcom,supply-post-on-sleep = <2>;
+			qcom,supply-pre-off-sleep = <2>;
+		};
+	};
+
+	dsi_lead_hx83112a_1080_2160_5p65_video_display: qcom,dsi-display@23 {
+		label = "dsi_lead_hx83112a_1080_2160_5p65_video_display";
+		qcom,display-type = "primary";
+
+		qcom,dsi-ctrl-num = <0>;
+		qcom,dsi-phy-num = <0>;
+		qcom,dsi-select-clocks = "mux_byte_clk0", "mux_pixel_clk0";
+
+		qcom,dsi-panel = <&dsi_lead_hx83112a_1080_2160_5p65_video>;
+	};
+
+	dsi_jdi_hx83112a_1080_2160_5p65_video_display: qcom,dsi-display@24 {
+		label = "dsi_jdi_hx83112a_1080_2160_5p65_video_display";
+		qcom,display-type = "primary";
+
+		qcom,dsi-ctrl-num = <0>;
+		qcom,dsi-phy-num = <0>;
+		qcom,dsi-select-clocks = "mux_byte_clk0", "mux_pixel_clk0";
+
+		qcom,dsi-panel = <&dsi_jdi_hx83112a_1080_2160_5p65_video>;
+	};
+};
+
+&pm8150l_wled {
+	qcom,ovp = <25000>;
+	qcom,fs-current-limit = <20000>;
+	qcom,string-cfg= <3>;
+	/delete-property/   qcom,auto-calibration;
+};
