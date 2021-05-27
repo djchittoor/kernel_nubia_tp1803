@@ -1223,7 +1223,7 @@ static irqreturn_t tmd2725_irq(int irq, void *handle)
 {
 	struct tmd2725_chip *chip = handle;
 	SENSOR_LOG_DEBUG_IF(chip->pdata->debug_level, "enter\n");
-	wake_lock_timeout(&chip->ps_wlock, msecs_to_jiffies(100));
+	__pm_wakeup_event(chip->ws, 100);
 	tmd2725_irq_handler(chip);
 	SENSOR_LOG_DEBUG_IF(chip->pdata->debug_level, "exit\n");
 	return IRQ_HANDLED;
@@ -1396,7 +1396,7 @@ void tmd2725_ps_device_unregister(struct tmd2725_chip *chip)
 	free_irq(chip->client->irq, chip->client);
 	sensor_remove_sysfs_interfaces(chip->ps_dev, tmd2725_prox_attrs,
 				       ARRAY_SIZE(tmd2725_prox_attrs));
-	wake_lock_destroy(&chip->ps_wlock);
+	wakeup_source_trash(chip->ws);
 	mutex_destroy(&chip->ps_lock);
 	free_irq(chip->irq, chip->client);
 }
