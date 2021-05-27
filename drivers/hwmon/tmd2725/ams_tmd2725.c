@@ -495,7 +495,7 @@ static int tmd2725_probe(struct i2c_client *client,
 		client->dev.platform_data = pdata;
 	}
 
-	wake_lock_init(&chip->ps_wlock, WAKE_LOCK_SUSPEND, "tmd2725");
+	wakeup_source_init(&chip->ws, "tmd2725");
 	chip->client = client;
 	chip->pdata = pdata;
 	mutex_init(&chip->pdata->lock);
@@ -575,7 +575,7 @@ static int tmd2725_probe(struct i2c_client *client,
  exit_regulator_put:
 	sensor_regulator_configure(chip, false);
  exit_alloc_failed:
-	wake_lock_destroy(&chip->ps_wlock);
+	wakeup_source_trash(&chip->ws);
 	if (chip->pdata)
 		kfree(chip->pdata);
 	if (chip)

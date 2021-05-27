@@ -31,7 +31,7 @@
 #include <linux/mutex.h>
 #include <linux/workqueue.h>
 #include <linux/wait.h>
-#include <linux/wakelock.h>
+#include <linux/pm_wakeup.h>
 //#define ABI_SET_GET_REGISTERS
 
 #define LOG_TAG "TMD2725"
@@ -359,7 +359,7 @@ struct tmd2725_chip {
 	struct mutex ps_lock;
 	struct mutex als_lock;
 	struct i2c_client *client;
-	struct wake_lock ps_wlock;
+	struct wakeup_source ws;
 
 	struct pinctrl *pinctrl;
 	struct pinctrl_state *pin_default;
