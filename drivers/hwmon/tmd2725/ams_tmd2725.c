@@ -131,7 +131,7 @@ static void tmd2725_set_defaults(struct tmd2725_chip *chip)
 	chip->params.lux_segment[0].ch1_coef = 260;
 	chip->params.lux_segment[1].ch0_coef = 800;
 	chip->params.lux_segment[1].ch1_coef = 270;
-	chip->params.wait_time = WAIT_TIME_MS(10);
+	chip->params.wait_time = WAIT_TIME_MS(500);
 
 	chip->als_gain_auto = true;
 
