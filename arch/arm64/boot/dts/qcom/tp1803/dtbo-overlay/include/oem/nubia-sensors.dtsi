@@ -17,10 +17,6 @@
  */
 
 &qupv3_se9_i2c {
-	/delete-node/ nubia@39;
-};
-
-&qupv3_se9_i2c {
 	status = "ok";
 	ams@39 {
 		compatible = "tmd2725";

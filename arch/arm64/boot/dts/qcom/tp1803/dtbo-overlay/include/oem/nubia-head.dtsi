@@ -3,6 +3,5 @@
 #include "nubia-gpio_key.dtsi"
 #include "nubia-leds.dtsi"
 #include "nubia-neo-power.dtsi"
-#include "nubia-others.dtsi"
 #include "nubia-sensors.dtsi"
 #include "nubia-touch.dtsi"
