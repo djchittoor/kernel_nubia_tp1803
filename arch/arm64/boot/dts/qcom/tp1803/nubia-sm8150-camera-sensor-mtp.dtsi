@@ -11,10 +11,6 @@
  * GNU General Public License for more details.
  */
 
-&sdhc_2 {
-	status = "disabled";
-};
-
 &soc {
 	led_flash_rear: qcom,camera-flash@0 {
 		cell-index = <0>;
