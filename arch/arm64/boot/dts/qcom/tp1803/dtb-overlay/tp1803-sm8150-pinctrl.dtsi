@@ -4,15 +4,8 @@
  */
 
 &storage_cd {
-        mux {
-            /delete-property/ pins;
-            /delete-property/ function;
-        };
-        config {
-            /delete-property/ pins;
-            /delete-property/ bias-pull-up;
-            /delete-property/ drive-strength;
-        };
+        /delete-node/ mux;
+        /delete-node/ config;
 };
 
 &qupv3_se7_spi_active {
@@ -25,14 +18,6 @@
 };
 
 &fsa_usbc_ana_en {
-        mux {
-            /delete-property/ pins;
-            /delete-property/ function;
-        };
-        config {
-            /delete-property/ pins;
-            /delete-property/ bias-disable;
-            /delete-property/ drive-strength;
-            /delete-property/ output-low;
-        };
+        /delete-node/ mux;
+        /delete-node/ config;
 };
