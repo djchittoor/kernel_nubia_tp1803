@@ -12,7 +12,7 @@
 // power mode select
 #define SF_POWER_MODE_SEL           PWR_MODE_REGULATOR
 // debug log select
-#define SF_LOG_ENABLE               1
+#define SF_LOG_ENABLE               0
 //-----------------------------------------------------------------------------
 
 /* Dts node. */
