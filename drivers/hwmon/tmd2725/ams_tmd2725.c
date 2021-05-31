@@ -58,7 +58,7 @@ static u8 const tmd2725_ids[] = {
 };
 
 /* TMD2725 Device Names */
-static char const *tmd2725_names[] = {
+static char const *tmd2725_names[] __used = {
 	DEVICE_CHIP_NAME
 };
 
