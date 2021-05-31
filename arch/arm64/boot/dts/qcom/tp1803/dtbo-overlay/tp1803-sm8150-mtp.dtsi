@@ -11,8 +11,8 @@
 
 &qupv3_se9_i2c {
 	nq@28 {
-		pinctrl-0 = <&nfc_int_active &nfc_enable_active>;
-		pinctrl-1 = <&nfc_int_suspend &nfc_enable_suspend>;
+		pinctrl-0 = <>;
+		pinctrl-1 = <>;
 	};
 };
 

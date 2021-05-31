@@ -4,7 +4,7 @@
  */
 
 &snd_9360 {
-		status = "disabled";
+	status = "disabled";
 };
 
 &qupv3_se4_i2c {
