@@ -359,7 +359,7 @@ struct tmd2725_chip {
 	struct mutex ps_lock;
 	struct mutex als_lock;
 	struct i2c_client *client;
-	struct wakeup_source *ws;
+	struct wakeup_source ws;
 
 	struct pinctrl *pinctrl;
 	struct pinctrl_state *pin_default;
