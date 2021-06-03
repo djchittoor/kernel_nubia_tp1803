@@ -22,12 +22,6 @@
 		pinctrl-0 = <&sunwave_reset_default &sunwave_irq_default &sunwave_id_default>;
 		VDD-supply = <&pm8150l_l6>;
 	};
-
-	/delete-node/ qcom,qbt1000;
-};
-
-&qupv3_se9_i2c {
-	/delete-node/ nq@28;
 };
 
 &tlmm {

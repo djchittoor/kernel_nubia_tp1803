@@ -5,14 +5,13 @@
 
 &soc {
 	qcom,qbt1000 {
-		/delete-property/ qcom,ipc-gpio;
+		status="disabled";
 	};
 };
 
 &qupv3_se9_i2c {
 	nq@28 {
-		pinctrl-0 = <>;
-		pinctrl-1 = <>;
+		status="disabled";
 	};
 };
 
