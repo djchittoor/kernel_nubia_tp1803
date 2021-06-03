@@ -133,7 +133,7 @@ static void tmd2725_set_defaults(struct tmd2725_chip *chip)
 	chip->params.lux_segment[1].ch1_coef = 270;
 	chip->params.wait_time = WAIT_TIME_MS(10);
 
-	chip->als_gain_auto = true;
+	chip->als_gain_auto = false;
 
 	// Copy the default values into the register shadow area
 	sh[TMD2725_REG_PILT] = (chip->params.prox_th_min & 0xff);
