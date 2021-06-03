@@ -12,16 +12,8 @@
 	qcom,fv-max-uv = <4400000>;
 	qcom,usb-icl-ua = <2000000>;
 
-	qcom,step-chg-base-soc;
 	qcom,step-chg-base-soc-value = <70>;
 	qcom,step-chg-base-soc-current = <2000000>;
-
-	qcom,jeita-warm-stop-chg-soc = <70>;
-
-	qcom,lcd-on-limit-enable;
-	qcom,lcd-on-limit-temp = <400>;
-	qcom,lcd-on-limit-fcc = <1200000>;
-
 };
 
 &pm8150b_fg {
