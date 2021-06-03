@@ -2,7 +2,7 @@
 #include "../display/nubia-lead-hx83112a-1080-2160-5p65-video.dtsi"
 
 &dsi_sharp_4k_dsc_cmd_display {
-	status="disabled";
+	status = "disabled";
 };
 
 &soc {
