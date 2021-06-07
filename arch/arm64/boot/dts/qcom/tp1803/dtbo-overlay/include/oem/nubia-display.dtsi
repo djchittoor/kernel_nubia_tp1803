@@ -69,6 +69,6 @@
 &pm8150l_wled {
 	qcom,ovp = <25000>;
 	qcom,fs-current-limit = <20000>;
-	qcom,string-cfg= <3>;
-	/delete-property/   qcom,auto-calibration;
+	qcom,string-cfg = <3>;
+	/delete-property/ qcom,auto-calibration;
 };

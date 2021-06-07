@@ -13,7 +13,7 @@
 
 &soc {
 	sunwave_fp {
-	        status = "ok";
+		status = "ok";
 		compatible = "sunwave,fingerprint";
 		sunwave,gpio_irq = <&tlmm 118 0x00>;
 		sunwave,gpio_reset = <&tlmm 113 0x00>;

@@ -15,8 +15,8 @@
 
 &soc {
 	gpio_keys {
-	       compatible = "gpio-keys";
-               label = "gpio-keys";
+		compatible = "gpio-keys";
+		label = "gpio-keys";
 
 		pinctrl-0 = <&key_vol_up_default &voice_key_default>;
 		voice_key {
