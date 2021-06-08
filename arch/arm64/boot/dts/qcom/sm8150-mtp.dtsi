@@ -15,9 +15,8 @@
 
 #include "sm8150-pmic-overlay.dtsi"
 #include "sm8150-sde-display.dtsi"
+#include "sm8150-camera-sensor-mtp.dtsi"
 #include "sm8150-thermal-overlay.dtsi"
-
-#include "tp1803/nubia-sm8150-camera-sensor-mtp.dtsi"
 
 &qupv3_se4_i2c {
 #address-cells = <1>;
