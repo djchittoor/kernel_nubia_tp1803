@@ -3,27 +3,25 @@
  * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
  */
 
-&soc {
 
-	led_flash_rear: qcom,camera-flash@0 {
-		flash-source = <&pm8150l_flash0>;
-		torch-source = <&pm8150l_torch0>;
-		switch-source = <&pm8150l_switch0>;
-	};
-	
-	led_flash_rear_aux: qcom,camera-flash@1 {
-		status = "disabled";
-	};
-	
-	led_flash_front: qcom,camera-flash@2 {
-		status = "disabled";
-	};
-	
-	led_flash_iris: qcom,camera-flash@3  {
-	    status = "disabled";
-	};
-
+&led_flash_rear {
+	flash-source = <&pm8150l_flash0>;
+	torch-source = <&pm8150l_torch0>;
+	switch-source = <&pm8150l_switch0>;
 };
+
+&led_flash_rear_aux {
+	status = "disabled";
+};
+
+&led_flash_front {
+	status = "disabled";
+};
+
+&led_flash_iris  {
+	status = "disabled";
+};
+
 
 &tlmm {
 	/delete-node/ cam_sensor_front_active;
@@ -90,87 +88,83 @@
 	};
 };
 
+&actuator_front {
+	status = "disabled";
+};
 
+&ois_rear  {
+	status = "disabled";
+};
+
+&eeprom_rear_aux {
+	status = "disabled";
+};
+
+
+&actuator_rear  {
+	cam_vaf-supply = <&pm8150l_l9>;
+	rgltr-min-voltage = <2960000>;
+	rgltr-max-voltage = <2960000>;
+	rgltr-load-current = <1200000>;
+};
+
+
+&eeprom_rear {
+	cam_vana-supply = <&pm8150l_bob>;
+	cam_vdig-supply = <&pm8150_s5>;
+	cam_vaf-supply = <>;
+	regulator-names = "cam_vio", "cam_vana", "cam_vdig", "cam_clk";
+	rgltr-min-voltage = <0 3300000 2040000 0>;
+	rgltr-max-voltage = <0 3300000 2040000 0>;
+	rgltr-load-current = <0 80000 1200000 0>;
+
+	gpios = <&tlmm 13 0>,
+		<&tlmm 28 0>,
+		<&tlmm 11 0>,
+		<&tlmm 27 0>,
+		<&tlmm 35 0>,
+		<&tlmm 36 0>;
+
+	gpio-vana = <2>;
+	gpio-vdig = <3>;
+	gpio-custom1 = <4>;
+	gpio-custom2 = <5>;
+	gpio-req-tbl-num = <0 1 2 3 4 5>;
+	gpio-req-tbl-flags = <1 0 0 0 0 0>;
+	gpio-req-tbl-label = "CAMIF_MCLK0",
+				"CAM_RESET0",
+				"CAM_VANA0",
+				"CAM_VDIG0",
+				"CAM_CUSTOM1",
+				"CAM_CUSTOM2";
+
+	cci-device = <0>;
+	clock-rates = <19200000>;
+};
+
+
+&eeprom_front {
+	status = "disabled";
+};
 
 &cam_cci0 {
-
-	actuator_rear_aux: qcom,actuator@1 {
-		status = "disabled";
-	};
-
-	actuator_front: qcom,actuator@2 {
-		status = "disabled";
-	};
-
-	ois_rear: qcom,ois@0 {
-		status = "disabled";
-	};
-
-	eeprom_rear_aux: qcom,eeprom@1 {
-		status = "disabled";
-	};
-
 	qcom,cam-sensor@2 {
 		status = "disabled";
 	};
 
-    qcom,cam-sensor@3 {
-        status = "disabled";
-    };
+    	qcom,cam-sensor@3 {
+        	status = "disabled";
+    	};
 
-	actuator_rear: qcom,actuator@0 {
-		cam_vaf-supply = <&pm8150l_l9>;
-		rgltr-min-voltage = <2960000>;
-		rgltr-max-voltage = <2960000>;
-		rgltr-load-current = <1200000>;
-	};
-
-	eeprom_rear: qcom,eeprom@0 {
-		cam_vana-supply = <&pm8150l_bob>;
-		cam_vdig-supply = <&pm8150_s5>;
-		cam_vaf-supply = <>;
-		regulator-names = "cam_vio", "cam_vana", "cam_vdig", "cam_clk";
-		rgltr-min-voltage = <0 3300000 2040000 0>;
-		rgltr-max-voltage = <0 3300000 2040000 0>;
-		rgltr-load-current = <0 80000 1200000 0>;
-
-		gpios = <&tlmm 13 0>,
-			<&tlmm 28 0>,
-			<&tlmm 11 0>,
-			<&tlmm 27 0>,
-			<&tlmm 35 0>,
-			<&tlmm 36 0>;
-
-		gpio-vana = <2>;
-		gpio-vdig = <3>;
-		gpio-custom1 = <4>;
-		gpio-custom2 = <5>;
-		gpio-req-tbl-num = <0 1 2 3 4 5>;
-		gpio-req-tbl-flags = <1 0 0 0 0 0>;
-		gpio-req-tbl-label = "CAMIF_MCLK0",
-					"CAM_RESET0",
-					"CAM_VANA0",
-					"CAM_VDIG0",
-					"CAM_CUSTOM1",
-					"CAM_CUSTOM2";
-
-		cci-device = <0>;
-		clock-rates = <19200000>;
-	};
-
-	eeprom_front: qcom,eeprom@2 {
-		status = "disabled";
-	};
-
-	eeprom_front: qcom,eeprom@1 {
-		cell-index = <1>;
-		reg = <0x1>;
+	eeprom_front_new: qcom,eeprom@3 {
+		cell-index = <3>;
+		reg = <0x3>;
 		compatible = "qcom,eeprom";
 		cam_vdig-supply = <&pm8150_s5>;
 		cam_vio-supply = <&pm8150l_l1>;
 		cam_vana-supply = <&pm8150l_bob>;
 		cam_clk-supply = <&titan_top_gdsc>;
-		regulator-names = "cam_vio", "cam_vana", "cam_vdig", "cam_clk";
+		regulator-names = "cam_vio", "cam_vana", "cam_vdig","cam_clk";
 		rgltr-cntrl-support;
 		pwm-switch;
 		rgltr-min-voltage = <0 3300000 2040000 0>;
@@ -205,8 +199,7 @@
 		clock-cntl-level = "turbo";
 		clock-rates = <19200000>;
 	};
-
-
+	
 	qcom,cam-sensor@0 {
 		cell-index = <0>;
 		compatible = "qcom,cam-sensor";
@@ -272,8 +265,8 @@
 		sensor-position-roll = <270>;
 		sensor-position-pitch = <0>;
 		sensor-position-yaw = <0>;
-		eeprom-src = <&eeprom_front>;
-		//cam_bob-supply = <&pm8150l_bob>;
+		eeprom-src = <&eeprom_front_new>;
+		cam_bob-supply = <>;
 		cam_vdig-supply = <&pm8150_s5>;
 		cam_vio-supply = <&pm8150l_l1>;
 		cam_vana-supply = <&pm8150l_bob>;
