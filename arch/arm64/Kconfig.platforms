@@ -161,6 +161,11 @@ config ARCH_SM8150
 	  This enables support for the SM8150 chipset. If you do not
 	  wish to build a kernel that runs on this chipset, say 'N' here.
 
+config BOARD_TP1803
+	bool "Enable Support for Nubia Mini 5G (TP1803)"
+	depends on ARCH_QCOM
+	  select ARCH_SM8150
+
 config ARCH_SDMSHRIKE
 	bool "Enable Support for Qualcomm Technologies, Inc. SDMSHRIKE"
 	depends on ARCH_QCOM
