@@ -1,0 +1,16 @@
+&qupv3_se17_i2c {
+	status = "okay";
+
+	himax-ts@48 {
+		status = "okay";
+		compatible = "himax,hxcommon";
+		reg = <0x48>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <122 0x2008>;
+		himax,panel-coords = <0 1080 0 2160>;
+		himax,display-coords = <0 1080 0 2160>;
+		himax,rst-gpio = <&tlmm 54 0x00>;
+		himax,irq-gpio = <&tlmm 122 0x00>;
+		report_type = <1>;
+	};
+};

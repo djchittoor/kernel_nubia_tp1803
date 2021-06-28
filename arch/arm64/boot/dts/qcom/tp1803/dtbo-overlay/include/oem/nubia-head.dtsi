@@ -1,0 +1,7 @@
+#include "nubia-display.dtsi"
+#include "nubia-finger.dtsi"
+#include "nubia-gpio_key.dtsi"
+#include "nubia-leds.dtsi"
+#include "nubia-neo-power.dtsi"
+#include "nubia-sensors.dtsi"
+#include "nubia-touch.dtsi"

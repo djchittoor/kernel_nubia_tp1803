@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
+ */
+
+&snd_934x {
+	qcom,audio-routing =
+		"AIF4 VI", "MCLK",
+		"RX_BIAS", "MCLK",
+		"MADINPUT", "MCLK",
+		"hifi amp", "LINEOUT1",
+		"hifi amp", "LINEOUT2",
+		"AMIC1", "MIC BIAS1",
+		"MIC BIAS1", "Handset Mic",
+		"AMIC2", "MIC BIAS2",
+		"MIC BIAS2", "Headset Mic",
+		"AMIC3", "MIC BIAS3",
+		"MIC BIAS3", "Secondary Mic";
+
+	qcom,cdc-ext-amp-gpios = <&tlmm 100 0>;
+	qcom,msm-mbhc-hphl-swh = <0>;
+	qcom,msm-mbhc-gnd-swh = <0>;
+	qcom,msm-mbhc-usbc-audio-supported = <1>;
+	qcom,mbhc-audio-jack-type = "4-pole-jack";
+	qcom,msm-mbhc-hs-mic-max-threshold-mv = <2700>;
+
+	qcom,wsa-max-devs = <0>;
+};
+
+&wcd934x_cdc {
+	qcom,cdc-micbias1-mv = <2500>;
+	qcom,cdc-micbias2-mv = <2700>;
+	qcom,cdc-micbias3-mv = <2500>;
+	qcom,cdc-micbias4-mv = <2500>;
+};
