@@ -36,7 +36,7 @@
 
 #define LOG_TAG "TMD2725"
 
-#define DEBUG_ON		//DEBUG SWITCH
+/* #define DEBUG_ON */		//DEBUG SWITCH
 
 #define SENSOR_LOG_ERROR(fmt, args...) printk(KERN_ERR "[%s] [%s:%d] " fmt,\
 					LOG_TAG, __FUNCTION__, __LINE__, ##args)
@@ -54,6 +54,7 @@ do { \
 					LOG_TAG, __FUNCTION__, __LINE__, ##args)
 #else
 #define SENSOR_LOG_DEBUG(fmt, args...)
+#define SENSOR_LOG_INFO(fmt, args...)
 #endif
 
 #ifdef AMS_MUTEX_DEBUG
