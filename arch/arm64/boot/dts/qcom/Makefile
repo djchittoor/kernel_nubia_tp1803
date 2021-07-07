@@ -1,4 +1,13 @@
 # SPDX-License-Identifier: GPL-2.0
+
+ifeq ($(CONFIG_BOARD_TP1803),y)
+ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+	dtbo-$(CONFIG_ARCH_SM8150) += \
+		 tp1803-sm8150-sdx50m-mtp-overlay.dtbo
+
+tp1803-sm8150-sdx50m-mtp-overlay.dtbo-base := tp1803-sm8150-v2.dtb
+endif # CONFIG_BUILD_ARM64_DT_OVERLAY
+else
 ifeq ($(TARGET_BOARD_TYPE),auto)
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_SM8150) += \
@@ -585,6 +594,8 @@ dtb-$(CONFIG_ARCH_SDM429W) += sdm429-wtp.dtb\
 endif
 
 endif
+
+endif # CONFIG_BOARD_TP1803
 
 ifeq ($(CONFIG_ARM64),y)
 always		:= $(dtb-y)

@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
+ */
+
+&soc {
+	qcom,qbt1000 {
+		status = "disabled";
+	};
+};
+
+&qupv3_se9_i2c {
+	nq@28 {
+		status = "disabled";
+	};
+};
+
+&sdhc_2 {
+	status = "disabled";
+};
+
+&smb1390 {
+	status = "disabled";
+};
+
+&smb1390_charger {
+	status = "disabled";
+};

@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
+ */
+
+&sde_dsi { 
+	qcom,dsi-display-list =
+		<&dsi_lead_hx83112a_1080_2160_5p65_video_display
+		&dsi_jdi_hx83112a_1080_2160_5p65_video_display>;
+};
+
+&mdss_mdp {
+	connectors = <&sde_rscc &sde_wb &sde_dp &sde_dsi>;
+};
