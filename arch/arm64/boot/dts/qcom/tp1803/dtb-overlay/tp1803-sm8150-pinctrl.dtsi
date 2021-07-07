@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
+ */
+
+&storage_cd {
+        /delete-node/ mux;
+        /delete-node/ config;
+};
+
+&qupv3_se7_spi_active {
+        mux {
+            pins = "gpio98", "gpio99","gpio101";
+        };
+        config {
+            pins = "gpio98", "gpio99","gpio101";
+        };
+};
+
+&fsa_usbc_ana_en {
+        /delete-node/ mux;
+        /delete-node/ config;
+};

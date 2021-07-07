@@ -1,0 +1,24 @@
+&mtp_batterydata {
+	#include "../battery/fg-gen4-batterydata-alium-3600mah-nubia.dtsi"
+	#include "../battery/fg-gen4-batterydata-alium-3450mah-nubia-old.dtsi"
+};
+
+&pm8150b_charger {
+	qcom,auto-recharge-soc = <99>;
+	qcom,float-option = <1>;
+	qcom,chg-term-src = <0>;
+	qcom,chg-term-current-ma = <(-150)>;
+	qcom,fcc-max-ua = <2000000>;
+	qcom,fv-max-uv = <4400000>;
+	qcom,usb-icl-ua = <2000000>;
+
+	qcom,step-chg-base-soc-value = <70>;
+	qcom,step-chg-base-soc-current = <2000000>;
+};
+
+&pm8150b_fg {
+	qcom,fg-force-load-profile;
+	qcom,fg-sys-term-current = <(-200)>;
+	qcom,fg-cutoff-voltage = <3300>;
+	qcom,fg-esr-cal-temp-thresh = <10 45>;
+};

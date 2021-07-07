@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
+ */
+
+#include "tp1803-msm-audio-lpass.dtsi"
+#include "tp1803-sm8150-audio.dtsi"
+#include "tp1803-sm8150-pcie.dtsi"
+#include "tp1803-sm8150-pinctrl.dtsi"
+
+&shared_meta {
+	parts = "vbmeta,boot,system,vendor,dtbo";
+};
+
+&android_q_fstab {
+	/delete-node/ odm;
+	vendor {
+		fsmgr_flags = "wait";
+		status = "ok";
+	};
+};

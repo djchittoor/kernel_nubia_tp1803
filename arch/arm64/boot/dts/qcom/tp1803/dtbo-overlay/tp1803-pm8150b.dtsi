@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2021, Daniel Jacob Chittoor <djchittoor47@gmail.com>
+ */
+
+&pm8150b_haptics {
+	qcom,actuator-type = "erm";
+	qcom,play-rate-us = <20000>;
+
+	wf_0 {
+		qcom,wf-pattern = [7e 7e 7e];
+		qcom,wf-play-rate-us = <20000>;		
+		qcom,wf-brake-pattern = [03 00 00 00];
+	};
+	wf_1 {
+		qcom,wf-play-rate-us = <20000>;
+	};
+	wf_2 {
+		qcom,wf-play-rate-us = <20000>;
+	};
+	wf_3 {
+		qcom,wf-play-rate-us = <20000>;
+	};
+	wf_4 {
+		qcom,wf-play-rate-us = <20000>;
+	};
+	wf_5 {
+		qcom,wf-play-rate-us = <20000>;
+	};
+};
